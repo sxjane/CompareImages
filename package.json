@@ -1,0 +1,42 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.jsx",
+  "scripts": {
+    "build": "webpack --mode production",
+    "server": "nodemon ./server/server.js",
+    "client": "webpack --mode development --watch --watch-aggregate-timeout 100 --watch-poll 1000",
+    "start": "node ./server/server.js"
+  },
+  "author": "Xiaojie Si",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "mobx": "^5.15.7",
+    "mobx-react": "^6.3.0",
+    "morgan": "^1.10.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.1",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-decorators": "^7.10.5",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-flow": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^4.2.1",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "nodemon": "^2.0.4",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
