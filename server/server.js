@@ -8,7 +8,7 @@ const app = express()
 const port = 3000
 const indexFile = path.join(__dirname, '../build/index.html')
 const PUBLIC_DIR = path.join(__dirname, '../build')
-const jsonFile = path.join(__dirname, '/data.json')
+const imageFilePath = path.join(__dirname, '../images/grapefruit.jpg')
 
 app.use(morgan('dev'))
 app.use(express.static(PUBLIC_DIR))
@@ -20,22 +20,30 @@ app.get('/', (req, res) => {
     res.sendFile(indexFile)
 })
 
-app.post('/test-page', (req, res) =>{
-    var name = req.body.name
-    var color = req.body.color
-    var params = req.params
-    res.send('hello ' + name + ', hello ' + color + '!\n')
-    console.log('test-page:',params)
-})
+app.get('/get_images', (req, res)=>{
 
-app.get('/products', (req, res)=>{
-    fs.readFile(jsonFile, (err,data)=>{
-        if(err) throw err
-        let obj = JSON.parse(data)
-        res.send(obj)
+    res.sendFile(imageFilePath, (err)=>{
+        if(err){
+            console.log('failed transfering the file')
+        }else{
+            console.log('successed transfering the file')
+        }
     })
 })
+
+app.get('/base64_data', (req,res)=>{
+    const data = fs.readFileSync(imageFilePath)
+    const base64_data = Buffer.from(data).toString('base64')
+    const base64_obj = {
+        img:base64_data
+    }
+    res.send(base64_obj)
+}) 
 
 app.listen(port, ()=>{
     console.log(`App listening at http://localhost:${port}`)
 })
+
+
+
+
