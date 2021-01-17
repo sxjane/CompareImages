@@ -1,0 +1,17 @@
+.single_image{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+.top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.two_images{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
